@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5D Partners LLC - Investment Bank</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&display=swap');
+
+        :root {
+            --navy-primary: #1a2332;
+            --navy-dark: #0f1419;
+            --white: #ffffff;
+            --off-white: #f5f5f5;
+            --gray-light: #8a8a8a;
+            --gray-medium: #5a5a5a;
+            --gold-accent: #c9a961;
+            --font-serif: 'Playfair Display', serif;
+            --font-sans: 'Inter', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background: var(--navy-primary);
+            color: var(--white);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            max-width: 1400px;
+            width: 100%;
+            padding: 40px;
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        /* Left Side - Branding */
+        .brand-section {
+            padding: 60px 0;
+        }
+
+        .logo-container {
+            margin-bottom: 50px;
+        }
+
+        .welcome-text {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            color: var(--gray-light);
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .logo {
+            font-family: var(--font-serif);
+            font-size: 64px;
+            font-weight: 700;
+            color: var(--white);
+            letter-spacing: -1px;
+            margin-bottom: 16px;
+            line-height: 1.1;
+        }
+
+        .subtitle {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            color: var(--gray-light);
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .divider {
+            width: 60px;
+            height: 2px;
+            background: var(--gold-accent);
+            margin: 24px 0 40px 0;
+        }
+
+        .tagline {
+            font-family: var(--font-serif);
+            font-size: 20px;
+            font-style: italic;
+            color: var(--gray-light);
+            margin-bottom: 50px;
+            font-weight: 400;
+        }
+
+        .features {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .feature {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            font-size: 15px;
+            line-height: 1.6;
+            color: var(--gray-light);
+        }
+
+        .feature::before {
+            content: '•';
+            color: var(--white);
+            font-size: 20px;
+            line-height: 1.2;
+        }
+
+        /* Right Side - Login Card */
+        .login-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .login-card {
+            background: var(--white);
+            border-radius: 0;
+            padding: 60px 50px;
+            width: 100%;
+            max-width: 480px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .login-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .login-title {
+            font-family: var(--font-serif);
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--navy-dark);
+            margin-bottom: 12px;
+        }
+
+        .login-subtitle {
+            font-size: 14px;
+            color: var(--gray-medium);
+            font-weight: 400;
+            line-height: 1.5;
+        }
+
+        .login-form {
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .form-label {
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--navy-dark);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .form-input {
+            padding: 16px 18px;
+            background: var(--off-white);
+            border: 1px solid #e0e0e0;
+            border-radius: 0;
+            color: var(--navy-dark);
+            font-size: 15px;
+            font-family: var(--font-sans);
+            transition: all 0.2s ease;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--navy-primary);
+            background: var(--white);
+        }
+
+        .form-input::placeholder {
+            color: #b0b0b0;
+        }
+
+        .submit-button {
+            padding: 16px 32px;
+            background: var(--navy-primary);
+            border: none;
+            border-radius: 0;
+            color: var(--white);
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 8px;
+        }
+
+        .submit-button:hover {
+            background: var(--navy-dark);
+        }
+
+        .submit-button:active {
+            transform: scale(0.98);
+        }
+
+        .error-message {
+            display: none;
+            padding: 14px;
+            background: #fee;
+            border: 1px solid #fcc;
+            color: #c33;
+            font-size: 13px;
+            text-align: center;
+        }
+
+        .error-message.show {
+            display: block;
+            animation: shake 0.5s ease;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-10px); }
+            75% { transform: translateX(10px); }
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 32px;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .footer-text {
+            font-size: 11px;
+            color: var(--gray-medium);
+            letter-spacing: 0.5px;
+        }
+
+        .location {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            color: var(--gray-light);
+            text-transform: uppercase;
+            margin-top: 50px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .main-content {
+                grid-template-columns: 1fr;
+                gap: 60px;
+            }
+
+            .brand-section {
+                text-align: center;
+            }
+
+            .divider {
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            .logo {
+                font-size: 48px;
+            }
+
+            .login-card {
+                padding: 40px 30px;
+            }
+
+            .login-title {
+                font-size: 28px;
+            }
+        }
+
+        /* Loading State */
+        .submit-button.loading {
+            position: relative;
+            color: transparent;
+            pointer-events: none;
+        }
+
+        .submit-button.loading::after {
+            content: '';
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            top: 50%;
+            left: 50%;
+            margin-left: -8px;
+            margin-top: -8px;
+            border: 2px solid var(--white);
+            border-radius: 50%;
+            border-top-color: transparent;
+            animation: spin 0.6s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="main-content">
+            <!-- Left Side - Branding -->
+            <div class="brand-section">
+                <div class="logo-container">
+                    <div class="welcome-text">Welcome to</div>
+                    <div class="logo">5D Partners LLC</div>
+                    <div class="subtitle">Investment Bank</div>
+                    <div class="divider"></div>
+                    <div class="tagline">Where Vision Meets Execution</div>
+                </div>
+
+                <div class="features">
+                    <div class="feature">Global Investment Bank based in New York City</div>
+                    <div class="feature">Specializing in Strategic Financial Advisory Services</div>
+                    <div class="feature">Trusted by Companies, Institutions, and Governments Worldwide</div>
+                </div>
+
+                <div class="location">New York</div>
+            </div>
+
+            <!-- Right Side - Login -->
+            <div class="login-section">
+                <div class="login-card">
+                    <div class="login-header">
+                        <h1 class="login-title">Client Portal</h1>
+                        <p class="login-subtitle">Enter your credentials to access your proposal</p>
+                    </div>
+
+                    <form class="login-form" id="loginForm">
+                        <div class="form-group">
+                            <label class="form-label" for="clientCode">Client Code</label>
+                            <input 
+                                type="text" 
+                                id="clientCode" 
+                                class="form-input" 
+                                placeholder="Enter your client code"
+                                autocomplete="off"
+                                required
+                            >
+                        </div>
+
+                        <div class="error-message" id="errorMessage">
+                            Invalid client code. Please check your credentials and try again.
+                        </div>
+
+                        <button type="submit" class="submit-button" id="submitButton">
+                            Access Proposal
+                        </button>
+                    </form>
+
+                    <div class="footer">
+                        <p class="footer-text">© 2025 5D Partners LLC. All rights reserved.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Client code to proposal URL mapping
+        const clientProposals = {
+            'WDTC': 'proposals/wdtc/index.html',
+            'WDTC2025': 'proposals/wdtc/index.html',
+            'WANJIE2025': 'strategy/beijing-wanjie.html',
+            // Add more client codes here as needed
+            // 'CLIENT2': 'proposals/client2/index.html',
+            // 'CLIENT3': 'proposals/client3/index.html',
+        };
+
+        const loginForm = document.getElementById('loginForm');
+        const clientCodeInput = document.getElementById('clientCode');
+        const submitButton = document.getElementById('submitButton');
+        const errorMessage = document.getElementById('errorMessage');
+
+        loginForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get the client code and convert to uppercase for case-insensitive matching
+            const clientCode = clientCodeInput.value.trim().toUpperCase();
+            
+            // Hide error message
+            errorMessage.classList.remove('show');
+            
+            // Add loading state
+            submitButton.classList.add('loading');
+            
+            // Simulate a brief delay for better UX
+            setTimeout(() => {
+                // Check if the client code exists in our mapping
+                if (clientProposals[clientCode]) {
+                    // Redirect to the proposal page
+                    window.location.href = clientProposals[clientCode];
+                } else {
+                    // Show error message
+                    errorMessage.classList.add('show');
+                    submitButton.classList.remove('loading');
+                    
+                    // Shake the input field
+                    clientCodeInput.style.animation = 'shake 0.5s ease';
+                    setTimeout(() => {
+                        clientCodeInput.style.animation = '';
+                    }, 500);
+                }
+            }, 800);
+        });
+
+        // Clear error when user starts typing
+        clientCodeInput.addEventListener('input', function() {
+            errorMessage.classList.remove('show');
+        });
+
+        // Auto-focus on the input field
+        window.addEventListener('load', function() {
+            clientCodeInput.focus();
+        });
+    </script>
+</body>
+</html>
